@@ -1,24 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_7" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TemperatureConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="926" height="428"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="day" translatesAutoresizingMaskIntoConstraints="NO" id="XEG-LK-iTe">
+                                <rect key="frame" x="-6" y="0.0" width="938" height="428"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T-Converter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idS-Ia-mg7">
+                                <rect key="frame" x="600" y="30" width="242" height="45"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0ºC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahm-RO-x1k">
+                                <rect key="frame" x="434" y="137" width="58" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RfS-NE-scm">
+                                <rect key="frame" x="339" y="199" width="248" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="244" id="QDZ-Lk-3fF"/>
+                                    <constraint firstAttribute="width" constant="244" id="wBN-3q-PaY"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QDZ-Lk-3fF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="QDZ-Lk-3fF"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="IZq-B3-6gg"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32ºF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQ7-Nf-Mlr">
+                                <rect key="frame" x="427" y="249" width="72" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="idS-Ia-mg7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="7Id-Uq-7Ny"/>
+                            <constraint firstItem="ahm-RO-x1k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CrY-vW-1FO"/>
+                            <constraint firstItem="RfS-NE-scm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gcu-59-tVz"/>
+                            <constraint firstItem="XEG-LK-iTe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-50" id="Omz-AB-bup">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-50"/>
+                            </constraint>
+                            <constraint firstItem="XEG-LK-iTe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QQr-tq-vtf">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="idS-Ia-mg7" secondAttribute="trailing" constant="40" id="X5p-ts-N4f"/>
+                            <constraint firstAttribute="bottom" secondItem="XEG-LK-iTe" secondAttribute="bottom" id="cr7-qc-YZH">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="idS-Ia-mg7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="elx-E7-Mgh"/>
+                            <constraint firstItem="RfS-NE-scm" firstAttribute="top" secondItem="ahm-RO-x1k" secondAttribute="bottom" constant="20" id="kpy-UY-0RC"/>
+                            <constraint firstItem="EQ7-Nf-Mlr" firstAttribute="top" secondItem="RfS-NE-scm" secondAttribute="bottom" constant="20" id="pdx-Q5-Vf7"/>
+                            <constraint firstItem="EQ7-Nf-Mlr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qTn-fU-PXO"/>
+                            <constraint firstItem="idS-Ia-mg7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rfi-iH-75b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XEG-LK-iTe" secondAttribute="trailing" constant="-50" id="rlv-LQ-ozw"/>
+                            <constraint firstItem="RfS-NE-scm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="syU-7h-AsJ"/>
+                            <constraint firstItem="idS-Ia-mg7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="w9L-DN-ROe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rfi-iH-75b"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="rfi-iH-75b"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="celciusLabel" destination="ahm-RO-x1k" id="Wjx-ke-ua7"/>
+                        <outlet property="fahrenheitLabel" destination="EQ7-Nf-Mlr" id="ia1-lC-nI9"/>
+                        <outlet property="slider" destination="RfS-NE-scm" id="lo2-eB-8mL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-26.086956521739133" y="93.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="day" width="375" height="667"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
